@@ -1,6 +1,7 @@
 ---
 home: true
 heroImage: /images/hejiu.jpg
+heroImageDark: /images/yuhangyuan.png
 heroText: Good Good Study,Day Day Up!
 tagline: 学习园地 1.1
 features:
