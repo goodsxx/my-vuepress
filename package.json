@@ -1,0 +1,15 @@
+{
+  "name": "my-vuepress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://gitee.com/HelloWord_d/my-vuepress.git",
+  "author": "sxx <1368084801@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress-vite": "^2.0.0-beta.39"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  }
+}
