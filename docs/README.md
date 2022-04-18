@@ -3,7 +3,7 @@ home: true
 heroImage: /images/hejiu.jpg
 heroImageDark: /images/yuhangyuan.png
 heroText: My little dream will come true
-tagline: 学习园地 1.1
+tagline: 不止步。。。
 features:
 - title: 关于我
   details: 人菜瘾还大，多记笔记以备不时之需，若能顺便帮到大家就更好了。
