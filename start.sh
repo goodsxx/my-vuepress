@@ -13,3 +13,5 @@ echo  "Killed $ID"
 
 # 启动
 nohup yarn pro&
+# 启动webhookAPI
+nohup dotnet /home/my/my-vuepress/ScriptExecutor.dll
