@@ -14,4 +14,4 @@ echo  "Killed $ID"
 # 启动
 nohup yarn pro&
 # 启动webhookAPI
-nohup dotnet /home/my/script-executor/ScriptExecutor.dll&
+# nohup dotnet /home/my/script-executor/ScriptExecutor.dll&

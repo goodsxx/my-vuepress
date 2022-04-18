@@ -4,9 +4,11 @@ import type { DefaultThemeOptions } from 'vuepress-vite'
 export default defineUserConfig<DefaultThemeOptions>({
   // 站点配置
   lang: 'zh-CN',
-  title: '宋鑫鑫的学习笔记',
+  title: '宋鑫鑫的个人博客',
   description: 'Just do it!',
   port: 8080,
+  //自定义标签页图标
+  head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
 
   // 主题和它的配置
   theme: '@vuepress/theme-default',
