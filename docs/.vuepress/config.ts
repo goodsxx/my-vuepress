@@ -52,6 +52,10 @@ export default defineUserConfig<DefaultThemeOptions>({
         ],
       }
     ],
+    lastUpdatedText:'上次更新',
+    contributorsText:'贡献者',
+    backToHome:'返回首页',
+    editLink: false,//关闭编辑此页
     //仓库地址
     repo: 'https://gitee.com/goodsxx/my-vuepress',
   },
