@@ -16,6 +16,10 @@ export default defineUserConfig<DefaultThemeOptions>({
     navbar: [
       // 控制元素何时被激活
       {
+        text: '关于本站',
+        link: '/关于本站.md',
+      },
+      {
         text: '前端',
         children: [
           {
