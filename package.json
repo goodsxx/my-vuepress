@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "vuepress dev docs",
+    "pro": "vuepress dev docs --port=80",
     "build": "vuepress build docs"
   }
 }

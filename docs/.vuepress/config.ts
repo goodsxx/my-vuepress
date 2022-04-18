@@ -6,6 +6,7 @@ export default defineUserConfig<DefaultThemeOptions>({
   lang: 'zh-CN',
   title: '宋鑫鑫的学习笔记',
   description: 'Just do it!',
+  port: 8080,
 
   // 主题和它的配置
   theme: '@vuepress/theme-default',
