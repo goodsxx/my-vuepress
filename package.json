@@ -6,7 +6,8 @@
   "author": "sxx <1368084801@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev --port=8080 --host \"localhost\"",
+    "dev": "vuepress dev --port=8081 --host \"localhost\"",
+    "pro": "vuepress dev --port=80 --host \"localhost\"",
     "build": "vuepress build ."
   },
   "devDependencies": {
