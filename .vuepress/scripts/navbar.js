@@ -10,6 +10,10 @@ module.exports=[
       icon: "reco-message",
       items: [
         {
+          text: "微服务",
+          link: "/docs/micro-service/"
+        },
+        {
           text: "vuepress-reco",
           link: "/docs/theme-reco/"
         }

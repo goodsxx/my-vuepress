@@ -11,9 +11,9 @@ tagline: 慢慢理解世界，慢慢更新自己。
 #   background: '#fff',
 #   borderRadius: '1rem',
 # }
-bgImage: 'images/wanfeng.jpg'
+bgImage: 'images/bg1.jpg'
 bgImageStyle: {
-  height: '550px'
+  height: '450px'
 }
 isShowTitleInHome: false
 actionText: Guide

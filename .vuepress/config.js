@@ -4,10 +4,10 @@ module.exports = {
   description: "追赶时间。。。",
 
   head: require('./scripts/head'),
+  plugins: require('./scripts/plugins'),
   theme: "reco",
   themeConfig: {
-    //华为文案(不知道有什么用)
-    //huawei: true,
+    subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
     //评论组件
     valineConfig: {
       appId: 'cxPSbJA9SE1uXWt0ywBRl0Cr-gzGzoHsz',// your appId
