@@ -3,7 +3,7 @@ module.exports = [
         "link",
         {
         rel: "icon",
-        href: "/images/favicon.png"
+        href: "/images/s.png"
         }
     ],
     [

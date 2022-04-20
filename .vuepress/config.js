@@ -21,7 +21,7 @@ module.exports = {
     
     //以下配置需放在底部才生效
     dest: "public",
-    logo: "/images/favicon.png",
+    logo: "/images/s.png",
     search: true,//启用搜索
     searchMaxSuggestions: 10,
     author: "SongXinXin",//作者
