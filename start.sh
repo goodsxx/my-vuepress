@@ -12,4 +12,4 @@ kill -9  $ID
 echo  "Killed $ID"
 
 # 启动
-nohup yarn pro&
+nohup yarn dev&
