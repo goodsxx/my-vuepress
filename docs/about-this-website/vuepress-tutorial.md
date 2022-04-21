@@ -31,7 +31,7 @@ VuePress 是一个以 Markdown 为中心的静态网站生成器。你可以使�
 
 ## VuePress-Theme-Reco介绍
 
-`vuepress-theme-reco`是针对VuePress开发的一款第三方主题，该主题几乎继承 `VuePress` 默认主题的一切功能，并支持通过脚手架快速搭建，虽然该主题现已推出2.x的alpha版本，但鉴于正式版还未推出，本教程将基于该主题的1.x版本。
+`vuepress-theme-reco` 是针对VuePress开发的一款第三方主题，该主题几乎继承 `VuePress` 默认主题的一切功能，并支持通过脚手架快速搭建，虽然该主题现已推出2.x的alpha版本，但鉴于正式版还未推出，本教程将基于该主题的1.x版本进行讲解。
 
 ## 快速开始
 
