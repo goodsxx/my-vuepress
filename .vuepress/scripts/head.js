@@ -1,9 +1,9 @@
 module.exports = [
     [
-        "link",
+        "meta",//百度站长验证
         {
-        rel: "icon",
-        href: "/images/s.png"
+        name: "baidu-site-verification",
+        content: "code-GRkx78Unk8"
         }
     ],
     [
@@ -14,10 +14,10 @@ module.exports = [
         }
     ],
     [
-        "meta",//百度站长验证
+        "link",
         {
-        name: "baidu-site-verification",
-        content: "code-3DB9r3sWXy"
+        rel: "icon",
+        href: "/images/s.png"
         }
-    ]
+    ],
 ]
