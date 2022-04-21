@@ -8,7 +8,7 @@ tags:
  - VuePress
  - 自动发布
  - 个人博客
-permalink: /vuepress-seo-tutorial.html
+permalink: /vuepress-auto-release.html
 publish: true
 feed:
   enable: true
