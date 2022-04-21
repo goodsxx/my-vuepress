@@ -5,7 +5,7 @@ module.exports={
     //   text: "分类"
     // },
     tag: {
-      location: 3,
+      location: 4,
       text: "Tags"
     },
     socialLinks: [     // 首页信息栏展示社交信息

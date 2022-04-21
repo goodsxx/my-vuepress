@@ -6,17 +6,22 @@ module.exports=[
       icon: "reco-home"
     },
     {
+      text: "本站指南",
+      link: "/docs/about-this-website/",
+      icon: "reco-coding"
+    },
+    {
       text: "文档",
-      icon: "reco-message",
+      icon: "reco-document",
       items: [
         {
           text: "微服务",
           link: "/docs/micro-service/"
         },
-        {
-          text: "vuepress-reco",
-          link: "/docs/theme-reco/"
-        }
+        // {
+        //   text: "vuepress-reco",
+        //   link: "/docs/theme-reco/"
+        // }
       ]
     },
     {

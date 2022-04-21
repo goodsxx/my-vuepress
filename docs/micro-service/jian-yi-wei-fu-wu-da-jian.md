@@ -1,26 +1,28 @@
 ---
 title: 从零开始搭建简易微服务架构
-date: '2022-03-01'
-sidebar: 'auto'
+date: 2022-03-01
+sidebar: auto
 categories:
  - 微服务
 tags: 
  - Nginx
  - Consul
  - Ocelot
-sticky: 1
+sticky: 2
+permalink: /jian-yi-wei-fu-wu-da-jian.html
+publish: true
+feed:
+  enable: true
 ---
-
 :::tip
 基于Docker、Nginx、Consul、Ocelot等，从零开始搭建一套具有动态伸缩、限流、熔断的简易微服务架构。
 :::
 
 <!-- more -->
 
-
 ## 目标
 
-![1650439716799.png](./image/jian_yi_wei_fu_wu_da_jian/1650439716799.png)
+![简易微服务架构](./image/jian_yi_wei_fu_wu_da_jian/1650439716799.png)
 
 ## 环境说明
 
