@@ -15,7 +15,7 @@ feed:
   enable: true
 ---
 :::tip
-基于Docker、Nginx、Consul、Ocelot等，从零开始搭建一套具有动态伸缩、限流、熔断的简易微服务架构。
+基于Docker、Nginx、Consul、Ocelot等，从零开始搭建一套具有动态伸缩、限流、熔断功能的简易微服务架构。
 :::
 
 <!-- more -->
