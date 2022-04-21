@@ -7,6 +7,13 @@ module.exports = [
         }
     ],
     [
+        "meta",//Bing站长验证
+        {
+        name: "msvalidate.01",
+        content: "B203CBD1576DBD14E51A9B4AAD85386C"
+        }
+    ],
+    [
         "meta",//移动端优化
         {
         name: "viewport",
