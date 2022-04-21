@@ -5426,6 +5426,11 @@
   "resolved" "http://mirrors.cloud.tencent.com/npm/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz"
   "version" "4.6.1"
 
+"lodash.findindex@4.6.0":
+  "integrity" "sha1-oyRd7mH7m24GJLU1ElYku2nBEQY="
+  "resolved" "https://mirrors.cloud.tencent.com/npm/lodash.findindex/-/lodash.findindex-4.6.0.tgz"
+  "version" "4.6.0"
+
 "lodash.isempty@4.4.0":
   "integrity" "sha1-b4bL7di+TsmHvpqvM8loTbGzHn4="
   "resolved" "https://mirrors.cloud.tencent.com/npm/lodash.isempty/-/lodash.isempty-4.4.0.tgz"
@@ -8661,6 +8666,24 @@
     "toposort" "^1.0.0"
     "util.promisify" "1.0.0"
 
+"vuepress-plugin-autometa@^0.1.13":
+  "integrity" "sha512-yhd8smLhbCO0+gc3FRNjOyffdGl12gUkv60UqdtEUCojEy4s7APDJ2pt85cSLASMdnWaY7EcMibMRkqeUOVAKg=="
+  "resolved" "https://mirrors.cloud.tencent.com/npm/vuepress-plugin-autometa/-/vuepress-plugin-autometa-0.1.13.tgz"
+  "version" "0.1.13"
+  dependencies:
+    "lodash.defaultsdeep" "4.6.1"
+    "lodash.findindex" "4.6.0"
+    "lodash.isempty" "4.4.0"
+    "lodash.trimend" "^4.5.1"
+    "lodash.trimstart" "^4.5.1"
+    "remove-markdown" "0.3.0"
+    "striptags" "3.1.1"
+
+"vuepress-plugin-baidu-autopush@^1.0.1":
+  "integrity" "sha512-KVQkrmMgPY+GG8dtI2wcRxUv1n2h5DM8aFs75ltsSlFBSS9C/vfLb2LmywXAsoCXk2EHya2p66cpn7BxofK+Mw=="
+  "resolved" "https://mirrors.cloud.tencent.com/npm/vuepress-plugin-baidu-autopush/-/vuepress-plugin-baidu-autopush-1.0.1.tgz"
+  "version" "1.0.1"
+
 "vuepress-plugin-container@^2.0.2":
   "integrity" "sha512-TQrDX/v+WHOihj3jpilVnjXu9RcTm6m8tzljNJwYhxnJUW0WWQ0hFLcDTqTBwgKIFdEiSxVOmYE+bJX/sq46MA=="
   "resolved" "https://mirrors.cloud.tencent.com/npm/vuepress-plugin-container/-/vuepress-plugin-container-2.1.5.tgz"
@@ -8676,7 +8699,7 @@
   dependencies:
     "vue-disqus" "^3.0.5"
 
-"vuepress-plugin-feed@^0.1.8":
+"vuepress-plugin-feed@^0.1.8", "vuepress-plugin-feed@^0.1.9":
   "integrity" "sha512-iOJkR7zPmJAX0TEVdxNsUT07xNQB6lZFpU7DqsYzO01FhaPkMOOVM5Vx5a/iOOuOggAeoI9H9yuah+cRmCImlw=="
   "resolved" "https://mirrors.cloud.tencent.com/npm/vuepress-plugin-feed/-/vuepress-plugin-feed-0.1.9.tgz"
   "version" "0.1.9"

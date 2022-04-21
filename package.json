@@ -12,7 +12,13 @@
   },
   "devDependencies": {
     "vuepress": "1.8.2",
+    "vuepress-plugin-autometa": "^0.1.13",
+    "vuepress-plugin-baidu-autopush": "^1.0.1",
+    "vuepress-plugin-feed": "^0.1.9",
     "vuepress-theme-reco": "1.6.10"
   },
-  "description": "vuepress-theme-reco-demo"
+  "description": "vuepress-theme-reco-demo",
+  "dependencies": {
+    "vuepress-plugin-sitemap": "^2.3.1"
+  }
 }
