@@ -5,6 +5,7 @@ module.exports={
     "",//第一个为空时，默认加载顶部导航栏所选的文章标题
     "vuepress-tutorial",
     "vuepress-comment-tutorial",
+    "vuepress-auto-release",
     "vuepress-seo-tutorial",
   ],
   //微服务
