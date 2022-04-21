@@ -15,7 +15,7 @@ module.exports=[
       icon: "reco-document",
       items: [
         {
-          text: "微服务",
+          text: "微服务系列",
           link: "/docs/micro-service/"
         },
         // {

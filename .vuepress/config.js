@@ -1,6 +1,6 @@
 module.exports = {
   //顶部
-  title: "一本笔记",
+  title: "Xin 的笔记本",
   description: "追赶时间。。。",
 
   head: require('./scripts/head'),
