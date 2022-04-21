@@ -14,6 +14,13 @@ module.exports = [
         }
     ],
     [
+        "meta",//Google站长验证
+        {
+        name: "google-site-verification",
+        content: "qxA3JVZhNxhf9pq5_quneWi6N4WCugQ-3oy3fI6TuuU"
+        }
+    ],
+    [
         "meta",//移动端优化
         {
         name: "viewport",
