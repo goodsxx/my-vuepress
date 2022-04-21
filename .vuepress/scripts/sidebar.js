@@ -4,6 +4,8 @@ module.exports={
   "/docs/about-this-website/":[
     "",//第一个为空时，默认加载顶部导航栏所选的文章标题
     "vuepress-tutorial",
+    "vuepress-comment-tutorial",
+    "vuepress-seo-tutorial",
   ],
   //微服务
   "/docs/micro-service/": [
