@@ -7,4 +7,4 @@ publish: true
 feed:
   enable: true
 ---
-本系列主要记录微服务相关的技术。
+本系列主要记录微服务相关的技术，学习为主。
