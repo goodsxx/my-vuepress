@@ -6,7 +6,7 @@ categories:
  - VuePress
 tags: 
  - VuePress
- - SEO
+ - 评论
  - 个人博客
 permalink: /vuepress-comment-tutorial.html
 publish: true
