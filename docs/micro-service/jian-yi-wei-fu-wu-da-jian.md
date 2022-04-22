@@ -8,7 +8,7 @@ tags:
  - Nginx
  - Consul
  - Ocelot
-sticky: 2
+sticky: 1
 permalink: /jian-yi-wei-fu-wu-da-jian.html
 publish: true
 feed:
