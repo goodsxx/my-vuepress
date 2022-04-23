@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev --port=8081",
-    "pro": "vuepress dev --port=80",
+    "pro": "vuepress dev --port=8888",
     "build": "vuepress build ."
   },
   "devDependencies": {
