@@ -7,7 +7,7 @@ categories:
 tags: 
  - VuePress
  - 个人博客
-sticky: 2
+# sticky: 2
 permalink: /vuepress-tutorial.html
 publish: true
 feed:
