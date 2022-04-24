@@ -161,4 +161,4 @@ feed:
    nohup npm run pro&
 
    ```
-2. [在Linux上设置shell脚本开机启动](/docs/about-this-website/shell-start.md)
+2. [在Linux上设置shell脚本开机启动](/docs/linux/boot-up-script.md)
