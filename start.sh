@@ -10,6 +10,7 @@ ID=`ps -ef|grep node | grep vuepress|awk '{print $2}'`
 echo --- the process is $ID ---
 kill -9  $ID
 echo  "Killed $ID"
-
+# 更新包
+npm i
 # 启动
-nohup yarn pro&
+nohup npm run pro&
