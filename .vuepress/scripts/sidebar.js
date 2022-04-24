@@ -5,6 +5,7 @@ module.exports={
     "",//第一个为空时，默认加载顶部导航栏所选的文章标题
     "vuepress-tutorial",
     "vuepress-comment-tutorial",
+    "vuepress-release",
     "vuepress-auto-release",
     "vuepress-seo-tutorial",
   ],
@@ -12,6 +13,15 @@ module.exports={
   "/docs/micro-service/": [
     "",
     "jian-yi-wei-fu-wu-da-jian"
+  ],
+  //Linux
+  "/docs/linux/": [
+    "",
+    "installation-node",
+    "installation-yarn",
+    "installation-git",
+    "installation-dotnet",
+    "boot-up-script",
   ],
   //vuepress-reco
   // "/docs/theme-reco/": [

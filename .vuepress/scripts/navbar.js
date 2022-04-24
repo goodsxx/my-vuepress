@@ -15,6 +15,10 @@ module.exports=[
       icon: "reco-document",
       items: [
         {
+          text: "Linux系列",
+          link: "/docs/linux/"
+        },
+        {
           text: "微服务系列",
           link: "/docs/micro-service/"
         },
