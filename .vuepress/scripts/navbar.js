@@ -22,10 +22,10 @@ module.exports=[
           text: "微服务系列",
           link: "/docs/micro-service/"
         },
-        // {
-        //   text: "vuepress-reco",
-        //   link: "/docs/theme-reco/"
-        // }
+        {
+          text: "其他",
+          link: "/docs/others/"
+        }
       ]
     },
     {

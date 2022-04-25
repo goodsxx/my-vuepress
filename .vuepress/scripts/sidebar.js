@@ -20,14 +20,13 @@ module.exports={
     "installation-node",
     "installation-yarn",
     "installation-git",
+    "installation-nginx",
     "installation-dotnet",
     "boot-up-script",
   ],
-  //vuepress-reco
-  // "/docs/theme-reco/": [
-  //   "",
-  //   "api",
-  //   "theme",
-  //   "plugin"
-  // ]
+  //其他
+  "/docs/others/":  [
+    "",
+    "domain-name-add-ssl-certificate",
+  ]
 }
