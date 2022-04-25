@@ -7,6 +7,7 @@ categories:
 tags: 
  - 域名
  - SSL
+ - Nginx
 permalink: /domain-name-add-ssl-certificate.html
 publish: true
 feed:
