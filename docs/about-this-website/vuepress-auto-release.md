@@ -24,7 +24,7 @@ feed:
 ## 新建脚本文件
 
 1. 在VuePress项目根目录中新建shell脚本文件 `start.sh`
-2. 编辑start.sh脚本文件并上传之git仓库
+2. 编辑start.sh脚本文件并上传至git仓库
 
    ```shell
      #!/bin/bash
@@ -65,7 +65,7 @@ feed:
    ![创建项目](./image/vuepress-auto-release/1650815065456.png "创建项目")
 2. 为项目命名，勾选'将解决方案和项目放在同一目录'
 
-   ![为项目命名](image/vuepress-auto-release/1650815121716.png "为项目命名")
+   ![为项目命名](./image/vuepress-auto-release/1650815121716.png "为项目命名")
 3. 框架选择.NET6.0
 
    ![选择框架](./image/vuepress-auto-release/1650815644534.png "选择框架")
@@ -161,4 +161,4 @@ feed:
    nohup npm run pro&
 
    ```
-2. [在Linux上设置shell脚本开机启动](/docs/about-this-website/shell-start.md)
+2. [在Linux上设置shell脚本开机启动](/docs/linux/boot-up-script.md)
