@@ -117,7 +117,7 @@ feed:
 ## 部署回调接口
 
 1. 将bin\Release\net6.0\publish\publish文件夹的下的所有项目上传至linux服务器中的/home/my/script-executor文件夹下
-2. [在Linux上安装.Net6环境](/docs/about-this-website/dotnet-install.md)
+2. [在Linux上安装.Net6环境](/docs/linux/installation-dotnet.md)
 3. 进入home/my/my-vuepress路径下
 
    ```shell
