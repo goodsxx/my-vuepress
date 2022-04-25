@@ -24,7 +24,7 @@ feed:
 ## 新建脚本文件
 
 1. 在VuePress项目根目录中新建shell脚本文件 `start.sh`
-2. 编辑start.sh脚本文件并上传之git仓库
+2. 编辑start.sh脚本文件并上传至git仓库
 
    ```shell
      #!/bin/bash
@@ -65,7 +65,7 @@ feed:
    ![创建项目](./image/vuepress-auto-release/1650815065456.png "创建项目")
 2. 为项目命名，勾选'将解决方案和项目放在同一目录'
 
-   ![为项目命名](image/vuepress-auto-release/1650815121716.png "为项目命名")
+   ![为项目命名](./image/vuepress-auto-release/1650815121716.png "为项目命名")
 3. 框架选择.NET6.0
 
    ![选择框架](./image/vuepress-auto-release/1650815644534.png "选择框架")
@@ -117,7 +117,7 @@ feed:
 ## 部署回调接口
 
 1. 将bin\Release\net6.0\publish\publish文件夹的下的所有项目上传至linux服务器中的/home/my/script-executor文件夹下
-2. [在Linux上安装.Net6环境](/docs/about-this-website/dotnet-install.md)
+2. [在Linux上安装.Net6环境](/docs/linux/installation-dotnet.md)
 3. 进入home/my/my-vuepress路径下
 
    ```shell
