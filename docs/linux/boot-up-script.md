@@ -63,5 +63,5 @@ feed:
 执行以下命令
 
 ```shell
-sed -i 's/\r//'' /root/start.sh
+sed -i 's/\r//' /root/start.sh
 ```
