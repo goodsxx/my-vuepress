@@ -23,6 +23,10 @@ module.exports=[
           link: "/docs/micro-service/"
         },
         {
+          text: "设计模式",
+          link: "/docs/design-pattern/"
+        },
+        {
           text: "其他",
           link: "/docs/others/"
         }

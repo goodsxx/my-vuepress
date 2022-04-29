@@ -24,6 +24,10 @@ module.exports={
     "installation-dotnet",
     "boot-up-script",
   ],
+  //设计模式
+  "/docs/design-pattern/":  [
+    "",
+  ],
   //其他
   "/docs/others/":  [
     "",
