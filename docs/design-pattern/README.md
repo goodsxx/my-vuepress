@@ -7,6 +7,8 @@ publish: true
 feed:
   enable: true
 ---
+
+:::tip
 本教程将通过.NET 实例，一步一步向您讲解设计模式的概念
 
 :::
