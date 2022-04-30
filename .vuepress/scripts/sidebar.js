@@ -27,6 +27,7 @@ module.exports={
   //设计模式
   "/docs/design-pattern/":  [
     "",
+    "factory-pattern",
   ],
   //其他
   "/docs/others/":  [
