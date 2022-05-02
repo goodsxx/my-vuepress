@@ -28,6 +28,7 @@ module.exports={
   "/docs/design-pattern/":  [
     "",
     "factory-pattern",
+    "abstract-factory-pattern",
   ],
   //其他
   "/docs/others/":  [
