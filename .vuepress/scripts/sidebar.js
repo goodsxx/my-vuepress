@@ -29,6 +29,7 @@ module.exports={
     "",
     "factory-pattern",
     "abstract-factory-pattern",
+    "singleton-pattern"
   ],
   //其他
   "/docs/others/":  [
