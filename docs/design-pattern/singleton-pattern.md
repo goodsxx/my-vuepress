@@ -4,7 +4,7 @@ date: 2022-05-06
 sidebar: auto
 categories:
  - 设计模式
- - 单例模式
+ - 创建型模式
 tags: 
  - 设计模式
 permalink: /singleton-pattern.html
