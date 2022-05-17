@@ -3,7 +3,7 @@ title: Linux系列
 date: 2022-04-10
 isShowComments: false
 permalink: /linux.html
-publish: true
+publish: false
 feed:
   enable: true
 ---

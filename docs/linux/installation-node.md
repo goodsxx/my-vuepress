@@ -19,7 +19,7 @@ feed:
 如何在Linux上安装Node/Npm
 :::
 
-<!--more-->
+<!-- more -->
 
 1. 一键下载并解压
 

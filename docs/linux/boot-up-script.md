@@ -4,7 +4,6 @@ date: 2022-04-19
 sidebar: auto
 categories:
  - Linux
- - shell脚本
 tags: 
  - Linux
  - shell脚本

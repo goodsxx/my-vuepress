@@ -3,7 +3,7 @@ title: 其他
 date: 2022-04-25
 isShowComments: false
 permalink: /others.html
-publish: true
+publish: false
 feed:
   enable: true
 ---
