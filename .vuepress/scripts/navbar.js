@@ -38,6 +38,11 @@ module.exports=[
       icon: "reco-date"
     },
     {
+      text: "留言板",
+      link: "/docs/message/",
+      icon: "reco-suggestion"
+    },
+    {
       text: "Gitee",
       icon: "reco-mayun",
       link: "https://gitee.com/goodsxx/my-vuepress",

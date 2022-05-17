@@ -27,9 +27,9 @@ module.exports={
   //设计模式
   "/docs/design-pattern/":  [
     "",
+    "singleton-pattern",
     "factory-pattern",
     "abstract-factory-pattern",
-    "singleton-pattern"
   ],
   //其他
   "/docs/others/":  [

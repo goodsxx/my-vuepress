@@ -2,6 +2,9 @@
 home: true
 heroText: null
 tagline: 慢慢理解世界，慢慢更新自己。
+taglineStyle: {
+  color:'white'
+}
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',
@@ -26,3 +29,9 @@ actionLink: /views/other/guide
 # - title: Tomorrow
 #   details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
 ---
+
+<style>
+  .description{
+    color:#d1d1d1
+  }
+</style>
