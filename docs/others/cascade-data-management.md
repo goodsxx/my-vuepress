@@ -13,6 +13,8 @@ feed:
 工作中经常会遇到级联数据的管理，例如行政区划，在这里记录一种操作级联数据的方法
 :::
 
+<!-- more -->
+
 ## 说明
 
 以行政区划为例，为每一级行政机构分配一个四位数的代码，例如：浙江省-0001，杭州市-00010001，宁波市-00010002，西湖区-000100010001，以此类推，暂且将这种代码的组合称为 代码链。
@@ -22,6 +24,7 @@ feed:
 3. 新增时，为新增的行政区划分配一个新的代码链，通常为同级代码链+1
 
 ## 1. 初始化
+
 ```cs
 /// <summary>
 /// 行政区划代码链初始化
@@ -104,7 +107,9 @@ public async Task UpdateDaiMaLianByRecursion(List<GY_ZD_XingZhengQHBMModel> allL
     await UpdateDaiMaLianByRecursion(allList, childList);
 }
 ```
+
 ## 2. 新增
+
 ```cs
 /// <summary>
 /// 新增行政区划
@@ -133,7 +138,9 @@ public async Task<string> AddXingZengQH(GY_ZD_XingZhengQHBMCreateDto createDto)
     return result.Id;
 }
 ```
+
 ## 3. 修改
+
 ```cs
 /// <summary>
 /// 修改行政区划
