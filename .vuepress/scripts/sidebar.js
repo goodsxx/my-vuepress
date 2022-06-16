@@ -35,5 +35,6 @@ module.exports={
   "/docs/others/":  [
     "",
     "domain-name-add-ssl-certificate",
+    "cascade-data-management",
   ]
 }
