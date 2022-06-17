@@ -29,9 +29,9 @@ feed:
 /// <summary>
 /// 行政区划代码链初始化
 /// </summary>
-/// <param name="BiaoZhunDM">用来标识具体的某一个行政区划</param>
+/// <param name="biaoZhunDM"></param>
 /// <returns></returns>
-public async Task<bool> XingZhengQHDMLInit(string BiaoZhunDM)
+public async Task<string> XingZhengQHDMLInit(string biaoZhunDM)
 {
     //将所有数据放入缓存，方便递归
     var allList = await _xingZhengQHBMRepository
@@ -44,22 +44,16 @@ public async Task<bool> XingZhengQHDMLInit(string BiaoZhunDM)
         DaiMaLian = x.DaiMaLian
     }).ToListAsync();
     //查询当前标准代码对应的数据
-    var entity = await _xingZhengQHBMRepository.AsNoTracking().FirstOrDefaultAsync(x => x.BiaoZhunDM == BiaoZhunDM);
-    //重置当前代码链
+    var entity = allList.FirstOrDefault(x => x.BiaoZhunDM == biaoZhunDM);
     //查询所有子集
     var childList = allList
         .Where(x => x.FuJiDM == entity.BiaoZhunDM)
-        .Select(x => new GY_ZD_XingZhengQHBMModel
-        {
-            Id = x.Id,
-            BiaoZhunDM = x.BiaoZhunDM,
-            FuJiDM = x.FuJiDM,
-            DaiMaLian = x.DaiMaLian
-        })
         .ToList();
     //递归更新子集代码链
-    await UpdateDaiMaLianByRecursion(allList, childList);
-    return true;
+    //批量更新错误信息
+    var errMsgList = new List<string>();
+    await UpdateDaiMaLianByRecursion(allList, childList, errMsgList);
+    return string.Join('|', errMsgList);
 }
 /// <summary>
 /// 递归更新代码链
@@ -67,15 +61,16 @@ public async Task<bool> XingZhengQHDMLInit(string BiaoZhunDM)
 /// <param name="allList">所有行政区划列表</param>
 /// <param name="fuJiEntityList">父级行政区划列表</param>
 /// <returns></returns>
-public async Task UpdateDaiMaLianByRecursion(List<GY_ZD_XingZhengQHBMModel> allList, List<GY_ZD_XingZhengQHBMModel> fuJiEntityList)
+public async Task UpdateDaiMaLianByRecursion(List<GY_ZD_XingZhengQHBMModel> allList, List<GY_ZD_XingZhengQHBMModel> fuJiEntityList, List<string> errMsgList)
 {
+    //根据传入的父级行政区划查找所有子级行政区划
     var childList = allList
-          .GroupJoin(fuJiEntityList, all => all.FuJiDM, fuJi => fuJi.BiaoZhunDM, (all, fuJi) => new { all, fuJi })
-            .SelectMany(x => x.fuJi.DefaultIfEmpty(), (all, fuJi) => new { all.all, fuJi })
-            .Where(x => x.fuJi != null)
-            .Select(x => x.all)
-            .ToList();
-    if (!childList.Any()) return;
+        .GroupJoin(fuJiEntityList, all => all.FuJiDM, fuJi => fuJi.BiaoZhunDM, (all, fuJi) => new { all, fuJi })
+        .SelectMany(x => x.fuJi.DefaultIfEmpty(), (all, fuJi) => new { all.all, fuJi })
+        .Where(x => x.fuJi != null)
+        .Select(x => x.all)
+        .ToList();
+    if (!childList.Any()) return ;
     //按照父级代码分组
     var groupList = childList.GroupBy(x => x.FuJiDM).Select(x=>x.Key).ToList();
     //批量更新子集代码链
@@ -88,23 +83,24 @@ public async Task UpdateDaiMaLianByRecursion(List<GY_ZD_XingZhengQHBMModel> allL
             var child = list[i];
             child.DaiMaLian = fuJiEntity.DaiMaLian + (i + 1).ToString().PadLeft(4, '0');
         }
+        
     }
     try
     {
         await _xingZhengQHBMRepository.BatchUpdateAsync(childList, x => new { x.DaiMaLian }, y => y.Id);
-        //从数据集中排除已更新的
-        allList = allList
-            .GroupJoin(childList, all => all.Id, child => child.Id, (all, child) => new { all, child })
-            .SelectMany(x => x.child.DefaultIfEmpty(), (all, child) => new { all.all, child })
-            .Where(x => x.child == null)
-            .Select(x => x.all)
-            .ToList();
     }
     catch (Exception ex)
     {
-        //失败跳过，继续执行下一个
+        errMsgList.Add("部分批量更新失败，失败层级父级ID：[" + string.Join(',', fuJiEntityList.Select(x => x.Id).ToList()) + "]" + ",失败原因：" + ex.Message);
     }
-    await UpdateDaiMaLianByRecursion(allList, childList);
+    //从数据集中排除已更新的
+    allList = allList
+        .GroupJoin(childList, all => all.Id, child => child.Id, (all, child) => new { all, child })
+        .SelectMany(x => x.child.DefaultIfEmpty(), (all, child) => new { all.all, child })
+        .Where(x => x.child == null)
+        .Select(x => x.all)
+        .ToList();
+    await UpdateDaiMaLianByRecursion(allList, childList, errMsgList);
 }
 ```
 
@@ -125,10 +121,18 @@ public async Task<string> AddXingZengQH(GY_ZD_XingZhengQHBMCreateDto createDto)
     }
     var entity = createDto.MapTo<GY_ZD_XingZhengQHBMCreateDto, GY_ZD_XingZhengQHBMModel>();
     #region 代码链赋值
+    //两种情况
+    //1.新增的行政区划是父级下面的第一个子级，这时代码链需要在父级基础上增加四位
+    //2.新增的行政区划不是父级下面的第一个子级，这时代码链需要取子级最大的代码链
+    //当出现第一种情况时，获取的代码链是父级代码链后追加四个0，这是为了下面生成最新的代码链，并且不会影响取最大值
     var daiMaLian = await _xingZhengQHBMRepository
             .AsNoTracking()
             .Where( x => x.FuJiDM == createDto.FuJiDM || x.BiaoZhunDM == createDto.FuJiDM)
-            .Select(x => x.DaiMaLian)
+            .Select(x => new
+            {
+                DaiMaLian = x.FuJiDM == createDto.FuJiDM ? x.DaiMaLian :  x.DaiMaLian + "0000"
+            })
+            .Select(x=>x.DaiMaLian)
             .MaxAsync();
     entity.DaiMaLian = daiMaLian.Substring(0, daiMaLian.Length - 4) + (Convert.ToInt32(daiMaLian.Substring(daiMaLian.Length - 4, 4)) + 1).ToString().PadLeft(4,'0');
     #endregion
@@ -154,8 +158,6 @@ public async Task<string> UpdateXingZengQH(string id, GY_ZD_XingZhengQHBMUpdateD
     try
     {
         var entity = await _xingZhengQHBMRepository.GetAsync(id);
-        //层级是否修改
-        var cengJiIsChange = entity.FuJiDM != updateDto.FuJiDM;
         if (entity == null)
         {
             throw new WeiZhaoDSException($"行政区划不存在！");
@@ -165,30 +167,40 @@ public async Task<string> UpdateXingZengQH(string id, GY_ZD_XingZhengQHBMUpdateD
         {
             throw new TongYongYWException($"行政区划已存在！");
         }
-        entity.Merge(updateDto);
-        entity.DaiMaID = $"{entity.DaiMaLB}{entity.BiaoZhunDM}";
         #region 代码链更新
-        if (cengJiIsChange)
+        //层级是否修改
+        if (entity.FuJiDM != updateDto.FuJiDM)
         {
             //查询原代码链
             var oldDaiMaLian = await _xingZhengQHBMRepository.AsNoTracking().Where(x => x.Id == id).Select(x => x.DaiMaLian).FirstOrDefaultAsync();
-            //查询新层级下的最大代码链
-            var newDaiMaLian = await _xingZhengQHBMRepository.AsNoTracking().Where(x => x.FuJiDM == updateDto.FuJiDM).Select(x => x.DaiMaLian).MaxAsync();
+            //查询新层级下的最大代码链 此处逻辑参考新增
+            var newDaiMaLian = await _xingZhengQHBMRepository
+            .AsNoTracking()
+            .Where(x => x.FuJiDM == updateDto.FuJiDM || x.BiaoZhunDM == updateDto.FuJiDM)
+            .Select(x => new
+            {
+                DaiMaLian = x.FuJiDM == updateDto.FuJiDM ? x.DaiMaLian : x.DaiMaLian + "0000"
+            })
+            .Select(x => x.DaiMaLian)
+            .MaxAsync();
             //更新代码链
             entity.DaiMaLian = newDaiMaLian.Substring(0, newDaiMaLian.Length - 4) + (Convert.ToInt32(newDaiMaLian.Substring(newDaiMaLian.Length - 4, 4)) + 1).ToString().PadLeft(4,'0');
             //查询所有需要更新代码链的子级
-            var childList = await _xingZhengQHBMRepository
+            var childList = await _xingZhengQHBMRepository 
                 .AsNoTracking()
                 .Where(x => x.DaiMaLian.StartsWith(oldDaiMaLian))
+                .Where(x => x.DaiMaLian != oldDaiMaLian)
                 .Select(x => new GY_ZD_XingZhengQHBMModel
                 {
                     Id = x.Id,
-                    DaiMaLian = x.DaiMaLian.Replace(oldDaiMaLian, entity.DaiMaLian)//更新后的代码链
+                    DaiMaLian = entity.DaiMaLian + x.DaiMaLian.Substring(oldDaiMaLian.Length, x.DaiMaLian.Length - oldDaiMaLian.Length)//更新后的代码链
                 }).ToListAsync();
             //批量更新子集代码链
             await _xingZhengQHBMRepository.BatchUpdateAsync(childList, x => new { x.DaiMaLian }, y => y.Id);
         }
         #endregion
+        entity.Merge(updateDto);
+        entity.DaiMaID = $"{entity.DaiMaLB}{entity.BiaoZhunDM}";
         await _xingZhengQHBMRepository.UpdateAsync(entity);
         await _unitOfWork.SaveChangesAsync();
         await _unitOfWork.CommitTransactionAsync();
