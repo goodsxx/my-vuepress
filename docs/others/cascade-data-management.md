@@ -45,14 +45,10 @@ public async Task<string> XingZhengQHDMLInit(string biaoZhunDM)
     }).ToListAsync();
     //查询当前标准代码对应的数据
     var entity = allList.FirstOrDefault(x => x.BiaoZhunDM == biaoZhunDM);
-    //查询所有子集
-    var childList = allList
-        .Where(x => x.FuJiDM == entity.BiaoZhunDM)
-        .ToList();
     //递归更新子集代码链
     //批量更新错误信息
     var errMsgList = new List<string>();
-    await UpdateDaiMaLianByRecursion(allList, childList, errMsgList);
+    await UpdateDaiMaLianByRecursion(allList,new List<GY_ZD_XingZhengQHBMModel> { entity }, errMsgList);
     return string.Join('|', errMsgList);
 }
 /// <summary>
