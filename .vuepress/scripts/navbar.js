@@ -27,6 +27,10 @@ module.exports=[
           link: "/docs/design-pattern/"
         },
         {
+          text: "工具",
+          link: "/docs/tools/"
+        },
+        {
           text: "其他",
           link: "/docs/others/"
         }

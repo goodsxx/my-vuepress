@@ -31,6 +31,11 @@ module.exports={
     "factory-pattern",
     "abstract-factory-pattern",
   ],
+  //工具
+  "/docs/tools/":  [
+    "",
+    "vs-translate",
+  ],
   //其他
   "/docs/others/":  [
     "",
